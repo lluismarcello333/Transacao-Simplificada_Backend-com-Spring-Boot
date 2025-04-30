@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+    postgres:
+        image: postgres:15
+        container_name: postgreSQL
+        restart: always
+        environment:
+            POSTGRES_USER: projects_lluis
+            POSTGRES_PASSWORD: F1rJ@n
+            POSTGRES_DB: db_agendamento
+        ports:
+            - "5432:5432"
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+        healthcheck:
+            test: [ "CMD-SHELL", "pg_isready -U postgres -d db_agendamento"]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+
+    app:
+        build: .
+        container_name: transacoes
+        depends_on:
+            - postgres
+        environment:
+            SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/transacoes
+            SPRING_DATASOURCE_USERNAME: projects_lluis
+            SPRING_DATASOURCE_PASSWORD: F1rJ@n
+        ports:
+            - "8080.8080"
+
+volumes:
+    postgres_data:
