@@ -22,7 +22,7 @@ Projeto backend desenvolvido com Spring Boot para gerenciamento de transações 
 - **Maven**
 
 ## 📁 Estrutura do Projeto
-
+```bash
 transacao-simplificada/
 ├── controller/
 │   ├── GlobalExceptionHandler.java
@@ -56,7 +56,7 @@ transacao-simplificada/
 │   └── UsuarioService.java
 ├── TransacaoSimplificadaApplication.java
 └── pom.xml
-
+```
 
 ## 🚀 Como Executar Localmente
 
@@ -66,7 +66,7 @@ git clone https://github.com/seu-usuario/transacao-simplificada.git
 cd transacao-simplificada
 ```
 
-2. **Configure o banco de dados PostgreSQL: *Crie um banco com o nome desejado e ajuste as credenciais no application.properties:**
+2. **Configure o banco de dados PostgreSQL: Crie um banco com o nome desejado e ajuste as credenciais no application.properties:**
 ```bash
 spring.datasource.url=jdbc:postgresql://localhost:5432/seu_banco
 spring.datasource.username=seu_usuario
